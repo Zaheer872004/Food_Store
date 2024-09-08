@@ -1,71 +1,58 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import Navbar from './pages/Navbar'
-// import Body from './components/Body'
-// import Home from './components/Home'
-// import Contact from './components/Contact'
-// import Error from './components/Error';
-// import About from './components/About';
-// import Cart from './components/Cart';
-// import ResturantsMenu from './components/ResturantsMenu';
-import {useRouteError ,createBrowserRouter, RouterProvider, useOutlet, Outlet } from 'react-router-dom'
+import React from 'react';
+import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
+import Navbar from './components/Navbar.jsx';
+import Footer from './components/Footer.jsx';
+import Home from './components/Home.jsx';
+import Restaurant from './components/Top-Restaurant.jsx';
+import Contact from './components/Contact.jsx';
+import About from './components/About.jsx';
+import Error from './components/Error.jsx';
 
- const AppLayout = () => {
+const AppLayout = () => {
   return (
-      <>
+    <>
       <Navbar />
-      <Outlet />
-      </>
-  )
-}
+      <main className="min-h-screen">
+        <Outlet /> {/* Renders the matched route component */}
+      </main>
+      <Footer />
+    </>
+  );
+};
 
 const appRouter = createBrowserRouter([
   {
     path: "/",
-    element: <AppLayout />,
-    // children: [
-    //   {
-    //     path: "/",
-    //     element: <Body/>
-    //   },
-    //   {
-    //     path: "/home",
-    //     element: <Home />,
-    //     errorElement:<Error/>,
-    //   },
-    //   {
-    //     path: "/contact",
-    //     element: <Contact />,
-    //     errorElement:<Error/>,
-    //   },
-    //   {
-    //     path: "/about",
-    //     element: <About />,
-    //     errorElement:<Error/>,
-    //   },
-    //   {
-    //       path: "/cart",
-    //       element: <Cart />,
-    //       errorElement:<Error/>,
-    //     },
-    //     {
-    //       path: "/restaurants/:resId",
-    //       element: < ResturantsMenu />,
-    //       errorElement:<Error/>,
-    //     },
-    // ],
-      // errorElement: <Error />,
+    element: <AppLayout />, // Layout for the app
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/home",
+        element: <Home />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
+        path: "/top-restaurant",
+        element: <Restaurant />,
+      },
+      // Add more routes here if needed
+    ],
+    errorElement: <Error />, // Error handling for the entire layout
   }
-  
-
-
 ]);
 
-// export default App;
-
-
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <RouterProvider router={appRouter}/>
-  </React.StrictMode>,
-)
+export default function App() {
+  return (
+    <RouterProvider router={appRouter} />
+  );
+}
