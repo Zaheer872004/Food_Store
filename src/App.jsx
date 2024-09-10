@@ -1,5 +1,4 @@
 import React from 'react';
-import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
 import Home from './components/Home.jsx';
@@ -7,12 +6,13 @@ import Restaurant from './components/Top-Restaurant.jsx';
 import Contact from './components/Contact.jsx';
 import About from './components/About.jsx';
 import Error from './components/Error.jsx';
+import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 
 const AppLayout = () => {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen">
+      <main className="">
         <Outlet /> {/* Renders the matched route component */}
       </main>
       <Footer />
