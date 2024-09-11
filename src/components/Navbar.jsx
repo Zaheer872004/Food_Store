@@ -1,7 +1,22 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const Navbar = () => {
+
+  const [status, setStatus] = useState("Login");
+
+  const handlerLogin = () => {
+    if(status === "Login"){
+      setStatus("Logout");
+    }else{
+      setStatus("Login");
+    }
+  }
+
+
+
+
   return (
     <div className="flex justify-between items-center bg-slate-700 text-black p-2">
       
@@ -36,7 +51,9 @@ const Navbar = () => {
       
       {/* Right section */}
       <div>
-        <p className="text-black hover:text-gray-300 bg-orange-300 rounded-md p-2 mr-12">SignUp/Login</p>
+        <p className="text-black hover:bg-white hover:cursor-pointer bg-orange-300 rounded-md p-2 mr-12" 
+        onClick={handlerLogin}
+        >{status}</p>
       </div>
     </div>
   );

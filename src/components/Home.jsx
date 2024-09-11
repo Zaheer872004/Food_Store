@@ -4,10 +4,8 @@ import Body from './Body'
 const Home = () => {
   return (
     <div>
-
-    <Body/>
-
-
+      {/* Hello from the Body components... */}
+      <Body/>
     </div>
   )
 }

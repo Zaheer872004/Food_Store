@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom'; 
-import ItemCard from './ItemCard'; 
+import { Link } from 'react-router-dom';
+import ItemCard from './ItemCard';
 
 const Body = () => {
   const [restorantValue, setRestorantValue] = useState([]);
@@ -9,6 +9,7 @@ const Body = () => {
   const requestURL = 'https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.4174894&lng=72.8212903&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING';
 
   useEffect(() => {
+
     const fetchData = async () => {
       try {
         const response = await axios.get(requestURL);
@@ -22,16 +23,26 @@ const Body = () => {
     };
 
     fetchData();
+
   }, []); 
 
+
+// here adding the filter based on rating
+// const filterRating = () =>{
+//   restorantValue.filter((e)=> e.info.avgRating)
+// }
+
   return (
-    <div>
-      {restorantValue.map((restoData) => (
-        <Link key={restoData.id} to={`/restaurant/${restoData.id}`}>
+    <>
+    <div className="flex flex-wrap">
+      {restorantValue.filter(e=> e.info.avgRating >= 4).map((restoData) => (
+        <Link key={restoData.id} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-3 ">
           <ItemCard {...restoData} />
-        </Link>
+        </Link> 
       ))}
     </div>
+   
+</>
   );
 };
 
