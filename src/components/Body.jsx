@@ -79,15 +79,15 @@ const Body = () => {
       <div className="flex flex-wrap">
         {(filteredResto.length !== 0 ?
           (filteredResto.map((restoData) => (
-            <Link key={restoData.info.id} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-3 bg-slate-200 ">
+            <li key={restoData.info.id} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-3 bg-slate-200 ">
               <ItemCard {...restoData} />
-            </Link>
+            </li>
           )))
           :
           (restorantValue.map((restoData) => (
-            <Link key={restoData.info.id} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-3 bg-slate-200 ">
+            <li key={restoData.info.id} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-3 bg-slate-200 ">
               <ItemCard {...restoData} />
-            </Link>
+            </li>
           )))
         )}
       </div>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Shammer from './Shammer';
+import { Link } from 'react-router-dom';
 
 const ItemCard = (props) => {
     // const [feedData, setFeedData ] = useState([]);
@@ -41,10 +42,13 @@ const ItemCard = (props) => {
                 <p className="text-gray-800 font-medium">
                     Cuisines: {cuisines.join(', ')}
                 </p>
-                <div className="flex items-center mt-2">
+                <div className="flex items-center justify-between mt-2">
                     <span className="bg-yellow-400 text-black text-xs font-semibold px-2 py-1 rounded-full">
                         {avgRating} ★
                     </span>
+                    <Link to={`/menu-card/${id}`}>
+                        <span className='bg-black text-white rounded-xl pl-3 px-2 py-1'>Buy Now</span>
+                    </Link>
                 </div>
             </div>
         </div>

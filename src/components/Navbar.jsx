@@ -23,11 +23,13 @@ const Navbar = () => {
       {/* Left section */}
       <div className="flex items-center gap-x-4">
         <div className="">
-          <img
+          <Link to="/">
+            <img
             className="w-20 h-20 rounded-full ml-5"
             src="https://imgs.search.brave.com/zHS4YHtQaOPR5ctFznVr6zTh_SpuaZOCdsPu-mFVJBo/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzA3LzYwLzQ3LzM2/LzM2MF9GXzc2MDQ3/MzY3NV9VOTJqZHI2/UVVFa2xCOW51NkVD/Qlg5ZWg0Wk9NUkp0/Zi5qcGc"
             alt="Salimar Hotel"
-          />
+            />
+          </Link>
           <p className="text-white font-bold tracking-wide ">Salimar Hotel</p>
         </div>
       </div>
